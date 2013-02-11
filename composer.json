@@ -4,6 +4,8 @@
     "authors": [
         { "name": "Andy Stanberry", "email": "andystanberry@gmail.com" }
     ],
+    "keywords": ["silex", "doctrine", "manager", "registry"],
+    "license": "MIT",
     "require": {
         "php": ">=5.3.2",
         "doctrine/common": ">=2.2.0,<2.5-dev"
