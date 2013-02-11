@@ -34,4 +34,31 @@ class SilexManagerRegistry extends AbstractManagerRegistry
     {
         unset($this->app[$name]);
     }
+
+    /**
+     * Resolves a registered namespace alias to the full namespace.
+     *
+     * @param string $alias
+     * @return string
+     * @throws MongoDBException
+     */
+    public function getAliasNamespace($alias)
+    {
+        foreach (array_keys($this->getManagers()) as $name) {
+            try {
+                $config = $this->getManager($name)->getConfiguration();
+
+                if ($config instanceof Doctrine\ORM\Configuration) {
+                    return $config->getEntityNamespace($alias);
+                }
+
+                if ($config instanceof Doctrine\ODM\MongoDB\Configuration) {
+                    return $config->getDocumentNamespace($alias);
+                }
+            } catch (\Exception $e) {
+            }
+        }
+
+        throw new \InvalidArgumentException('Alias namespace not found');
+    }
 }
