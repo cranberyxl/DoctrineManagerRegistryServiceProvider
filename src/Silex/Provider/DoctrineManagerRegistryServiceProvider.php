@@ -49,12 +49,12 @@ class DoctrineManagerRegistryServiceProvider implements ServiceProviderInterface
                 }
 
                 $map[$name] = new SilexManagerRegistry(
-                    $def['name'],
+                    $name,
                     $def['connections'],
                     $def['managers'],
-                    $def['defaultConnection'],
-                    $def['defaultManager'],
-                    $def['proxyInterfaceName']
+                    $def['default_connection'],
+                    $def['default_manager'],
+                    $def['proxy_interface_name']
                 );
 
                 $map[$name]->setApplication($app);
