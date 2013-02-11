@@ -1,0 +1,20 @@
+{
+    "name": "cranberyxl/doctrine-manager-registry-silex-provider",
+    "type": "library",
+    "authors": [
+        { "name": "Andy Stanberry", "email": "andystanberry@gmail.com" }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "doctrine/common": ">=2.2.0,<2.5-dev"
+    },
+    "require-dev": {
+        "silex/silex": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Doctrine": "src/",
+            "Silex": "src/"
+        }
+    }
+}
